@@ -9,49 +9,61 @@
 <style>
   :root{
     --negro:#0A0A0A; --rojo:#DD1927; --blanco:#FFFFFF;
-    --gris:#8A8A8A; --linea:#1E1E1E; --panel:#111111;
+    --gris:#8A8A8A; --linea:#1E1E1E; --panel:#111111; --panel2:#161616;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   body{background:var(--negro);color:var(--blanco);font-family:'DM Sans',sans-serif;min-height:100vh}
-  .wrap{max-width:860px;margin:0 auto;padding:56px 24px 80px}
+  .wrap{max-width:920px;margin:0 auto;padding:56px 24px 80px}
 
-  header{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
   h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,10vw,96px);line-height:.9;letter-spacing:1px}
   h1 .rojo{background:var(--rojo);color:var(--blanco);padding:0 14px;display:inline-block}
-  .sub{color:var(--gris);font-size:15px;margin-top:14px;max-width:520px}
+  .sub{color:var(--gris);font-size:15px;margin-top:14px;max-width:560px}
 
-  .barra{display:flex;gap:12px;align-items:center;margin:40px 0 8px;flex-wrap:wrap}
+  .barra{display:flex;gap:12px;align-items:center;margin:40px 0 20px;flex-wrap:wrap}
   #buscador{
     flex:1;min-width:220px;background:var(--panel);border:1px solid var(--linea);
-    color:var(--blanco);font:inherit;font-size:15px;padding:13px 16px;border-radius:6px;outline:none;
+    color:var(--blanco);font:inherit;font-size:15px;padding:13px 16px;border-radius:8px;outline:none;
   }
   #buscador:focus{border-color:var(--rojo)}
   #buscador::placeholder{color:var(--gris)}
   .contador{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1.5px;color:var(--gris);white-space:nowrap}
   .contador b{color:var(--blanco);font-weight:400}
 
-  ol{list-style:none;margin-top:16px}
-  .deploy a{
-    display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--blanco);
-    padding:18px 4px;border-bottom:1px solid var(--linea);transition:background .15s,padding-left .15s;
+  ol{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .deploy{
+    background:var(--panel);border:1px solid var(--linea);border-radius:12px;
+    padding:20px 22px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+    transition:border-color .15s;
   }
-  .deploy a:hover,.deploy a:focus-visible{background:var(--panel);padding-left:14px;outline:none}
-  .deploy .nombre{font-size:17px;font-weight:700;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .deploy .carpeta{color:var(--gris);font-size:13px;font-family:ui-monospace,Menlo,Consolas,monospace}
-  .deploy .fecha{color:var(--gris);font-size:13px;white-space:nowrap}
-  .deploy .flecha{color:var(--rojo);font-family:'Bebas Neue',sans-serif;font-size:22px;line-height:1}
+  .deploy:hover{border-color:#333}
+  .deploy .info{flex:1;min-width:200px}
+  .deploy .nombre{font-size:18px;font-weight:700}
+  .deploy .meta{color:var(--gris);font-size:13px;margin-top:5px;display:flex;gap:12px;flex-wrap:wrap}
+  .deploy .meta .carpeta{font-family:ui-monospace,Menlo,Consolas,monospace}
 
-  #vacio{display:none;padding:48px 4px;color:var(--gris);font-size:15px;border-bottom:1px solid var(--linea)}
+  .acciones{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:7px;cursor:pointer;text-decoration:none;
+    font:inherit;font-size:13.5px;font-weight:500;color:var(--blanco);
+    background:var(--panel2);border:1px solid #2A2A2A;border-radius:8px;padding:9px 14px;
+    transition:background .15s,border-color .15s;
+  }
+  .btn:hover,.btn:focus-visible{background:#1D1D1D;border-color:#3A3A3A;outline:none}
+  .btn.primario{background:var(--rojo);border-color:var(--rojo)}
+  .btn.primario:hover{background:#C1141F}
+  .btn svg{width:15px;height:15px;flex:none}
+  .btn.copiado{border-color:#3CB371;color:#3CB371}
+
+  #vacio{display:none;padding:48px 4px;color:var(--gris);font-size:15px}
   footer{margin-top:56px;color:var(--gris);font-size:12px;letter-spacing:.5px}
-  @media (prefers-reduced-motion:reduce){.deploy a{transition:none}}
+  @media (prefers-reduced-motion:reduce){.deploy,.btn{transition:none}}
+  @media (max-width:560px){.acciones{width:100%}.btn{flex:1;justify-content:center}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <header>
-    <h1>LANDINGS <span class="rojo">IDCO</span></h1>
-  </header>
+  <h1>LANDINGS <span class="rojo">IDCO</span></h1>
   <p class="sub">Panel interno · Cada entrada enlaza a la landing desplegada en su subcarpeta. Las nuevas aparecen arriba automáticamente.</p>
 
   <div class="barra">
@@ -61,11 +73,13 @@
 
   <ol id="lista">
     <!-- IDCO:NUEVO_DEPLOY -->
-    <li class="deploy"><a href="./mar-valera-20260703/"><span class="nombre">Mar Valera</span><span class="carpeta">/mar-valera-20260703/</span><span class="fecha">03/07/2026</span><span class="flecha">&rsaquo;</span></a></li>
+    <li class="deploy" data-carpeta="mar-valera-20260703" data-nombre="Mar Valera" data-fecha="03/07/2026 21:07"></li>
     <!--
-      PLANTILLA DE ENTRADA (la inserta la automatización justo debajo del marcador de arriba):
+      PLANTILLA DE ENTRADA (la inserta la automatización justo debajo del marcador de arriba).
+      Los botones los genera JavaScript a partir de los data-attributes; la automatización
+      solo inserta esta línea:
 
-      <li class="deploy"><a href="./NOMBRE_CARPETA/"><span class="nombre">NOMBRE CLIENTE</span><span class="carpeta">/NOMBRE_CARPETA/</span><span class="fecha">DD/MM/AAAA</span><span class="flecha">›</span></a></li>
+      <li class="deploy" data-carpeta="NOMBRE_CARPETA" data-nombre="NOMBRE CLIENTE" data-fecha="DD/MM/AAAA HH:MM"></li>
     -->
   </ol>
   <p id="vacio">No hay resultados para esa búsqueda.</p>
@@ -75,6 +89,63 @@
 
 <script>
 (function(){
+  const iconoVer='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>';
+  const iconoCopiar='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+  const iconoDescargar='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>';
+
+  function urlAbsoluta(carpeta){
+    return new URL('./'+carpeta+'/', location.href).href;
+  }
+
+  function render(li){
+    const carpeta=li.dataset.carpeta, nombre=li.dataset.nombre, fecha=li.dataset.fecha||'';
+    const url=urlAbsoluta(carpeta);
+    li.innerHTML=
+      '<div class="info">'+
+        '<div class="nombre"></div>'+
+        '<div class="meta"><span class="fecha"></span><span class="carpeta">/'+carpeta+'/</span></div>'+
+      '</div>'+
+      '<div class="acciones">'+
+        '<a class="btn primario ver" href="'+url+'" target="_blank" rel="noopener">'+iconoVer+'Ver página</a>'+
+        '<button class="btn copiar" type="button">'+iconoCopiar+'Copiar enlace</button>'+
+        '<button class="btn descargar" type="button">'+iconoDescargar+'Descargar</button>'+
+      '</div>';
+    li.querySelector('.nombre').textContent=nombre;
+    li.querySelector('.fecha').textContent=fecha;
+
+    li.querySelector('.copiar').addEventListener('click',async function(){
+      try{ await navigator.clipboard.writeText(url); }
+      catch(e){
+        const t=document.createElement('textarea'); t.value=url; document.body.appendChild(t);
+        t.select(); document.execCommand('copy'); t.remove();
+      }
+      const b=this, txt=b.lastChild;
+      b.classList.add('copiado'); txt.textContent='¡Copiado!';
+      setTimeout(()=>{b.classList.remove('copiado'); txt.textContent='Copiar enlace';},1600);
+    });
+
+    li.querySelector('.descargar').addEventListener('click',async function(){
+      const b=this, txt=b.lastChild, original=txt.textContent;
+      txt.textContent='Descargando…';
+      try{
+        const r=await fetch('./'+carpeta+'/index.html',{cache:'no-store'});
+        if(!r.ok) throw new Error(r.status);
+        const blob=await r.blob();
+        const a=document.createElement('a');
+        a.href=URL.createObjectURL(blob);
+        a.download=carpeta+'.html';
+        document.body.appendChild(a); a.click(); a.remove();
+        URL.revokeObjectURL(a.href);
+        txt.textContent=original;
+      }catch(e){
+        txt.textContent='Error al descargar';
+        setTimeout(()=>{txt.textContent=original;},2000);
+      }
+    });
+  }
+
+  document.querySelectorAll('.deploy').forEach(render);
+
   const buscador=document.getElementById('buscador');
   const vacio=document.getElementById('vacio');
   const total=document.getElementById('total');
@@ -83,7 +154,7 @@
     const q=buscador.value.trim().toLowerCase();
     let visibles=0;
     items().forEach(li=>{
-      const t=li.textContent.toLowerCase();
+      const t=(li.dataset.nombre+' '+li.dataset.carpeta+' '+(li.dataset.fecha||'')).toLowerCase();
       const ok=!q||t.includes(q);
       li.style.display=ok?'':'none';
       if(ok)visibles++;
