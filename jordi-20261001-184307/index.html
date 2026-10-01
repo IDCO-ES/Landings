@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalonia Inversions</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Poppins', sans-serif; background:#ffffff; }
+  .video-shadow { border-radius:10px; box-shadow: 0 10px 26px 5px rgba(0,0,0,0.5); }
+  .video-plain  { border-radius:10px; }
+  .video-wrap { position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; }
+  .video-wrap iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .eyebrow { font-size:15px; font-weight:300; letter-spacing:4px; color:#000; text-transform:uppercase; }
+  @media (min-width:768px){ .eyebrow{ font-size:20px; letter-spacing:6px; } }
+  .section-title { font-size:25px; font-weight:700; color:#000; line-height:1.15; }
+  @media (min-width:768px){ .section-title{ font-size:53px; } }
+  .divider { width:34%; margin:15px auto 0; border-top:3px solid #000; }
+</style>
+</head>
+<body class="text-black">
+
+<!-- ============ 1. HEADER: solo logo centrado. PROHIBIDO añadir nav/enlaces/botones ============ -->
+<header class="py-5 flex justify-center">
+  <img src="https://institutodecrecimientoorganico.com/wp-content/uploads/2024/05/cropped-LogoIDCO-1-118x118.png" alt="Catalonia Inversions" class="h-[70px] w-auto">
+</header>
+
+<!-- ============ 2. HERO ============ -->
+<section class="text-center px-4 pt-6 pb-4 max-w-4xl mx-auto">
+  <p class="text-[24px] md:text-[53px] leading-tight text-black">
+    El banco te dijo que no a tu hipoteca. <strong>NOSOTROS CONSEGUIMOS EL SÍ.</strong>
+  </p>
+  <p class="text-[18px] md:text-[25px] text-[#424242] mt-4">
+    Para familias y autónomos en España que quieren comprar vivienda aunque el banco les haya rechazado o les pida el 20% que no tienen. 20 años consiguiendo hipotecas donde otros dicen que es imposible.
+  </p>
+  <div class="video-wrap video-shadow mt-8 max-w-3xl mx-auto">
+    <iframe src="https://www.youtube.com/embed/1NjGpHMiZvFYbngosQfLFUm2IIcD-3_fz" title="VSL"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- ============ 3. TEXTO DE TRANSICIÓN (una sola frase) ============ -->
+<section class="text-center px-4 py-6 max-w-3xl mx-auto">
+  <p class="text-[18px] md:text-[25px] text-[#424242]">
+    Si quieres tu estudio gratuito y sin compromiso, <strong>rellena el cuestionario</strong> de aquí abajo
+  </p>
+</section>
+
+<!-- ============ 4. TYPEFORM ============ -->
+<section class="px-4 pb-16 max-w-3xl mx-auto">
+  <div class="rounded-2xl overflow-hidden shadow-xl border border-gray-200">
+    <div data-tf-live="01M0GDJWQ0SYQHC0VY7FDX6278"></div><script src="//embed.typeform.com/next/embed.js"></script>
+  </div>
+</section>
+
+<!-- ============ 5. CASOS DE ESTUDIOS — Resultados de Clientes ============ -->
+<section class="text-center px-4 py-10">
+  <p class="eyebrow">CASOS DE ESTUDIOS</p>
+  <h2 class="section-title mt-3">Resultados de Clientes</h2>
+  <div class="divider"></div>
+
+  <!-- BLOQUE TESTIMONIO: duplicar este bloque por CADA vídeo proporcionado (vídeo → categoría → @handle) -->
+  <div class="mt-12 max-w-2xl mx-auto">
+    <div class="video-wrap video-plain">
+      <iframe src="https://www.youtube.com/embed/1kmv8FqflcuXnc2bEdn_urGL7LtdfhfzJ" title="Hipoteca aprobada"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p class="text-[18px] md:text-[24px] font-bold mt-5">Hipoteca aprobada tras 3 noes del banco</p>
+    <p class="text-[15px] md:text-[19px] mt-1">Familia atendida por Catalonia Inversions</p>
+  </div>
+  <!-- FIN BLOQUE TESTIMONIO -->
+
+</section>
+
+<!-- ============ 6. CASOS DE ESTUDIOS — Reseñas (carrusel de 12) ============ -->
+<section class="text-center px-4 py-10 overflow-hidden">
+  <p class="eyebrow">CASOS DE ESTUDIOS</p>
+  <h2 class="section-title mt-3">Reseñas</h2>
+  <div class="divider"></div>
+
+  <div class="relative max-w-6xl mx-auto mt-12">
+    <div class="overflow-hidden" id="carruselViewport">
+      <div class="flex transition-transform duration-500 ease-in-out" id="carruselTrack">
+        <!-- SLIDE RESEÑA: generar EXACTAMENTE 12, sustituyendo nombre y texto en cada una -->
+        <div class="carrusel-slide shrink-0 w-full md:w-1/3 px-3">
+          <div class="h-full bg-white border border-gray-200 rounded-xl shadow-lg p-6 text-left flex flex-col">
+            <div class="text-yellow-400 text-[18px] tracking-widest">★★★★★</div>
+            <p class="text-[15px] text-[#424242] mt-3 grow">"Mi banco de toda la vida me dijo que no sin darme explicaciones. Pensaba que ya no compraría casa. En Catalonia Inversions presentaron mi caso a otra entidad y en semanas tenía la hipoteca firmada."</p>
+            <p class="font-semibold mt-4 text-[15px]">Marta L.</p>
+          </div>
+        </div>
+        <div class="carrusel-slide shrink-0 w-full md:w-1/3 px-3">
+          <div class="h-full bg-white border border-gray-200 rounded-xl shadow-lg p-6 text-left flex flex-col">
+            <div class="text-yellow-400 text-[18px] tracking-widest">★★★★★</div>
+            <p class="text-[15px] text-[#424242] mt-3 grow">"No tenía el 20% de entrada y creía que era imposible. Me consiguieron una hipoteca al 100% con mis ingresos estables. Jamás me habían contado que esta opción existía."</p>
+            <p class="font-semibold mt-4 text-[15px]">Javier R.</p>
+          </div>
+        </div>
+        <div class="carrusel-slide shrink-0 w-full md:w-1/3 px-3">
+          <div class="h-full bg-white border border-gray-200 rounded-xl shadow-lg p-6 text-left flex flex-col">
+            <div class="text-yellow-400 text-[18px] tracking-widest">★★★★★</div>
+            <p class="text-[15px] text-[#424242] mt-3 grow">"Soy autónoma y en cada banco me miraban como un problema. Ellos sí entendieron mi forma de facturar y supieron a qué entidad acudir. Ahora tengo las llaves de mi piso."</p>
+            <p class="font-semibold mt-4 text-[15px]">Noelia P.</p>
+          </div>
+        </div>
+        <div class="carrusel-slide shrink-0 w-full md:w-1/3 px-3">
+          <div class="h-full bg-white border border-gray-200 rounded-xl shadow-lg p-6 text-left flex flex-col">
+            <div class="text-yellow-400 text-[18px] tracking-widest">★★★★★</div>
+            <p class="text-[15px] text-[#424242] mt-3 grow">"Llevábamos dos años intentándolo en tres bancos distintos. En seis semanas con Catalonia Inversions teníamos la aprobación. Lo que marcó la diferencia fue cómo presentaron nuestro expediente."</p>
+            <p class="font-semibold mt-4 text-[15px]">Carlos y Ana M.</p>
+          </div>
+        </div>
+        <div class="carrusel-slide shrink-0 w-full md:w-1/3 px-3">
+          <div class="h-full bg-white border border-gray-200 rounded-xl shadow-lg p-6 text-left flex flex-col">
+            <div class="text-yellow-400 text-[18px] tracking-widest">★★★★★</div>
+            <p class="text-[15px] text-[#424242] mt-3 grow">"Tenía una deuda de coche activa y un contrato a jornada parcial. Pensaba que no tenía nada que hacer. La reunificación que me propusieron me abrió la puerta a la hipoteca."</p>
+            <p class="font-semibold mt-4 text-[15px]">David S.</p>
+          </div>
+        </div>
+        <div class="carrusel-slide shrink-0 w-full md:w-1/3 px-3">
+          <div class="h-full bg-white border border-gray-200 rounded-xl shadow-lg p-6 text-left flex flex-col">
+            <div class="text-yellow-400 text-[18px] tracking-widest">★★★★★</div>
+            <p class="text-[15px] text-[#424242] mt-3 grow">"El estudio fue totalmente gratuito y sin ninguna presión. Me explicaron mis opciones reales con sinceridad. Eso me dio la confianza para seguir adelante con ellos."</p>
+            <p class="font-semibold mt-4 text-[15px]">Laura G.</p>
+          </div>
+        </div>
+        <div class="carrusel-slide shrink-0 w-full md:w-1/3 px-3">
+          <div class="h-full bg-white border border-gray-200 rounded-xl shadow-lg p-6 text-left flex flex-col">
+            <div class="text-yellow-400 text-[18px] tracking-widest">★★★★★</div>
+            <p class="text-[15px] text-[#424242] mt-3 grow">"Yo solo había ido a mi banco y me rendí con su no. Descubrí que trabajan con más de 15 entidades y que me quedaba casi todo el mercado por explorar. Encontraron la que encajaba con mi perfil."</p>
+            <p class="font-semibold mt-4 text-[15px]">Óscar V.</p>
+          </div>
+        </div>
+        <div class="carrusel-slide shrink-0 w-full md:w-1/3 px-3">
+          <div class="h-full bg-white border border-gray-200 rounded-xl shadow-lg p-6 text-left flex flex-col">
+            <div class="text-yellow-400 text-[18px] tracking-widest">★★★★★</div>
+            <p class="text-[15px] text-[#424242] mt-3 grow">"Como agente inmobiliaria perdía ventas cada vez que al comprador le denegaban la financiación. Ahora les derivo esos casos y cierro operaciones que antes se me caían. Un acuerdo redondo."</p>
+            <p class="font-semibold mt-4 text-[15px]">Rocío F.</p>
+          </div>
+        </div>
+        <div class="carrusel-slide shrink-0 w-full md:w-1/3 px-3">
+          <div class="h-full bg-white border border-gray-200 rounded-xl shadow-lg p-6 text-left flex flex-col">
+            <div class="text-yellow-400 text-[18px] tracking-widest">★★★★★</div>
+            <p class="text-[15px] text-[#424242] mt-3 grow">"Lo que más valoro es que cuando dijeron que lo iban a intentar, lo intentaron de verdad. 20 años de experiencia se notan en cada paso del proceso."</p>
+            <p class="font-semibold mt-4 text-[15px]">Miguel Á. T.</p>
+          </div>
+        </div>
+        <div class="carrusel-slide shrink-0 w-full md:w-1/3 px-3">
+          <div class="h-full bg-white border border-gray-200 rounded-xl shadow-lg p-6 text-left flex flex-col">
+            <div class="text-yellow-400 text-[18px] tracking-widest">★★★★★</div>
+            <p class="text-[15px] text-[#424242] mt-3 grow">"Me faltaba documentación clave que habría cambiado la respuesta del banco. Ellos lo detectaron enseguida, reorganizaron mi expediente y conseguimos el sí a la primera."</p>
+            <p class="font-semibold mt-4 text-[15px]">Patricia N.</p>
+          </div>
+        </div>
+        <div class="carrusel-slide shrink-0 w-full md:w-1/3 px-3">
+          <div class="h-full bg-white border border-gray-200 rounded-xl shadow-lg p-6 text-left flex flex-col">
+            <div class="text-yellow-400 text-[18px] tracking-widest">★★★★★</div>
+            <p class="text-[15px] text-[#424242] mt-3 grow">"Tengo ingresos estables pero cero ahorros acumulados. Creía que sin entrada no había nada que hacer. Me demostraron que había camino y hoy estoy pagando mi propia casa."</p>
+            <p class="font-semibold mt-4 text-[15px]">Sergio B.</p>
+          </div>
+        </div>
+        <div class="carrusel-slide shrink-0 w-full md:w-1/3 px-3">
+          <div class="h-full bg-white border border-gray-200 rounded-xl shadow-lg p-6 text-left flex flex-col">
+            <div class="text-yellow-400 text-[18px] tracking-widest">★★★★★</div>
+            <p class="text-[15px] text-[#424242] mt-3 grow">"Trato cercano, cero letra pequeña y un diagnóstico honesto desde el primer día. Pasé de la frustración de los noes a firmar mi hipoteca. Gracias de corazón al equipo."</p>
+            <p class="font-semibold mt-4 text-[15px]">Cristina D.</p>
+          </div>
+        </div>
+        <!-- FIN SLIDE RESEÑA -->
+      </div>
+    </div>
+    <button id="btnPrev" aria-label="Anterior" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 md:-translate-x-4 bg-white border border-gray-300 rounded-full w-10 h-10 shadow-md text-xl">‹</button>
+    <button id="btnNext" aria-label="Siguiente" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 md:translate-x-4 bg-white border border-gray-300 rounded-full w-10 h-10 shadow-md text-xl">›</button>
+    <div id="carruselDots" class="flex justify-center gap-2 mt-6"></div>
+  </div>
+</section>
+
+<!-- ============ 7. FOOTER: una sola línea ============ -->
+<footer class="py-8 text-center text-[14px] text-[#808285]">
+  Catalonia Inversions
+</footer>
+
+<script>
+(function(){
+  const track = document.getElementById('carruselTrack');
+  const slides = track.querySelectorAll('.carrusel-slide');
+  const dotsBox = document.getElementById('carruselDots');
+  let idx = 0, timer;
+  const perView = () => window.innerWidth >= 768 ? 3 : 1;
+  const pages = () => Math.ceil(slides.length / perView());
+  function renderDots(){
+    dotsBox.innerHTML = '';
+    for(let i=0;i<pages();i++){
+      const d=document.createElement('button');
+      d.className='w-2.5 h-2.5 rounded-full '+(i===idx?'bg-black':'bg-gray-300');
+      d.onclick=()=>{idx=i;update();resetTimer();};
+      dotsBox.appendChild(d);
+    }
+  }
+  function update(){
+    if(idx>=pages()) idx=0; if(idx<0) idx=pages()-1;
+    track.style.transform='translateX(-'+(idx*100)+'%)';
+    renderDots();
+  }
+  function next(){ idx++; update(); }
+  function resetTimer(){ clearInterval(timer); timer=setInterval(next,4500); }
+  document.getElementById('btnNext').onclick=()=>{next();resetTimer();};
+  document.getElementById('btnPrev').onclick=()=>{idx--;update();resetTimer();};
+  window.addEventListener('resize',update);
+  update(); resetTimer();
+})();
+</script>
+</body>
+</html>
